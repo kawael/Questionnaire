@@ -1,0 +1,74 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+var express = require('express');
+var app = require('../app');
+var debug = require('debug')('Questionnaire:server');
+var https = require('https');
+var http = require('http');
+var fs = require("fs");
+var key_file   = "./bin/key.pem";
+var cert_file  = "./bin/certification.crt";
+var config     = {
+  key: fs.readFileSync(key_file),
+  cert: fs.readFileSync(cert_file),
+  requestCert: false,
+  rejectUnauthorized: true
+};
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = parseInt(process.env.PORT, 10) || 80;
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+var serverHttps = https.createServer(config,app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+serverHttps.listen(443);
+server.on('error', onError);
+server.on('listening', onListening);
+serverHttps.on('listening', onListening);
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error('Port ' + port + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error('Port ' + port + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening(servPort) {
+  debug('Listening on port ' + server.address().port);
+}

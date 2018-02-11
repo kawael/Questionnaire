@@ -1,0 +1,209 @@
+
+.marged{
+	margin-top: 10px;
+}
+.marged-left{
+	margin-left: 10px !important;
+}
+.marged-5{
+	margin-top: 70px;
+}
+.marged-10{
+	margin-top: 100px;
+}
+.scroll-y{
+	max-height: 550px;
+	overflow-y: scroll;
+} 
+.no-padding{
+	padding-top:7px !important;
+}
+.clickable{
+	cursor: pointer;
+}
+.float-right{
+	float:right !important;
+}
+.float-left:before{
+	float:left !important;
+}
+.no-pad-marg{
+	margin:0;
+	padding:0;
+}
+.no-marg{
+	padding: 6px 12px;
+	margin:0;
+}
+.no-und:hover{
+	text-decoration: none;
+}
+#svg{
+	opacity:0;
+}
+/*#Main{
+	min-height: 400px;
+}*/
+.to-expend{
+	margin-top: calc(25% - 150px) ;
+}
+.rounded{
+	border-radius: 50%;
+	box-shadow: 1px 1px 1px 1px #333;
+}
+.alert{
+	display: none;
+}
+/*.fullHeight{
+	height: 775px;
+}*/
+.sized{
+	width:100px;
+	margin:auto;
+	height:100px;
+	border-radius: 50% !important;
+}
+
+.animator{
+	-webkit-animation: expend .5s ease 0.1s forwards;
+	-moz-animation: expend .5s ease 0.1s forwards;
+}
+@-webkit-keyframes expend{
+	0%{width:100px;height:100px;border-radius: 0;}
+	1%{border-radius: 0;}
+	50%{height:100px;}
+	100%{width: calc(100% - 30px);height:375px;border-radius: 0;}
+}
+@-moz-keyframes expend{
+	0%{width:100px;height:100px;border-radius: 0;}
+	1%{border-radius: 0;}
+	50%{height:100px;}
+	100%{width: calc(100% - 30px);height:375px;border-radius: 0;}
+}
+
+
+
+
+/*
+@media screen and (min-height: 650px) and (max-height: 780px){
+	.fullHeight{
+		height: 775px;
+	}
+}
+@media screen and (max-height: 650px){
+	.fullHeight{
+		height: 643px;
+	}
+}*/
+.delayed-500ms {
+  -webkit-animation-delay: .5s !important;
+  -moz-animation-delay: .5s !important;
+  -o-animation-delay: .5s !important;
+  animation-delay: .5s !important;
+}
+
+.delayed-1s {
+  -webkit-animation-delay: 1s !important;
+  -moz-animation-delay: 1s !important;
+  -o-animation-delay: 1s !important;
+  animation-delay: 1s !important;
+}
+.forever{
+	-webkit-animation-iteration-count: infinite !important;
+	-moz-animation-iteration-count: infinite !important;
+ 	-o-animation-iteration-count: infinite !important;
+	animation-iteration-count: infinite !important;
+}
+.marged-cote{
+	margin-left: 2%;
+	margin-right: 2%;
+	width:96%;
+}
+.no-margin{
+	margin-right: 0px;
+}
+.no-margin-all{
+	margin: 0;
+}
+.no-shadow{
+	box-shadow: none !important;
+	opacity: 0.0 !important;
+}
+/* colors */
+.brown	{
+	background-color: #4CAF50 !important;
+	color: #FFFFFF !important;}
+.orange	{
+	background-color: #F77825 !important;
+	color: #FFFFFF !important;}
+.green	{
+	background-color: #D3CE3D !important;
+	color: #FFFFFF !important;}
+.beige	{
+	background-color: #F1EFA5 !important;
+	color: #554236 !important;}
+.blue,.blue-invert:hover{
+	background-color: #2196F3 !important;
+	color: #FFFFFF !important;}
+.blue-invert:active{
+	background-color: #003459 !important;
+	color: #FFFFFF !important;
+	-webkit-animation: bounceIn 0.5s ease;}
+.blue-invert{
+	background-color: #FFFFFF !important;
+	color: #2196F3 !important;
+	transition: all .2s ease;}
+.light-green{
+	background-color: #4CAF50 !important;
+	color: #FFFFFF !important;
+}
+.deep-orange{
+	background-color: #F44336 !important;
+	color: #FFFFFF !important;
+}
+/* Table */
+
+#hot,#hotQuest{
+	/*width: 400px;*/
+	overflow: auto;
+	min-height: 350px;
+	max-height: 450px;
+}
+#ValiderModif{
+	display: none;
+}
+.snackbar{
+	background-color: inherit;
+	color: inherit;
+}
+.absolute-center{
+	transition: all .5s ease !important;
+	position: absolute !important;
+	width:100px !important;
+	height: 100px !important;
+	left:calc(50% - 50px) !important;
+	z-index: 100 !important;
+	margin-top: 15% !important;
+}
+.mdi-navigation-arrow-forward.absolute-center:before{
+	position: absolute;
+	top: calc(50% - 13px) !important;
+	left: calc(50% - 13px) !important;
+
+}
+@media screen and (max-width:990px){
+	.absolute-center{
+		margin-top: 40% !important;
+		-webkit-transform: rotate(90deg) !important;
+	}
+}
+td.togglebutton label .toggle{
+	width:100px;
+}
+td.togglebutton label .toggle[data-toggle="-50px"]:after{
+	left:-50px;
+}
+td.togglebutton label input[type=checkbox]:first-child:checked+.toggle[data-toggle="50px"]:after{
+
+	left:50px;
+}

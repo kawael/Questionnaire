@@ -1,0 +1,32 @@
+extends ../../header/layoutAdmin
+block style
+	link(rel="stylesheet", media="screen", href="/css/lib/handsontable.full.min.css")
+block main
+	include menu
+	.container.animated.fadeInUp.marged-cote
+		.row
+			.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				include ../secretaire/panel_list_quest
+				
+block suppFoot
+	script(src="/js/lib/underscore.min.js")
+	script(src="/js/lib/handsontable.full.min.js")
+	script(src="/js/lib/snackbar.min.js")
+	script.
+		var dataQuest = !{dataQuest} || undefined;
+		var diference = [],ValiderModif;
+		var delData = [];
+		function ObjectToArray(dataOld) {
+			var dataNew = [];
+			_(dataOld).each(function(element, index) {
+				i = 0;
+				dataNew[index] = [];
+				_(element).each(function(valeur, key) {
+					dataNew[index][i] = valeur;
+					i++;
+				});
+			});
+			return dataNew;
+		}
+	
+	script(src="/js/controler/list_questionnaire_form.js")

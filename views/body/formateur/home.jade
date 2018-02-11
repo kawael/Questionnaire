@@ -1,0 +1,22 @@
+extends ../../header/layoutAdmin
+
+block main
+	include menu
+	.container.animated.fadeInUp.delayed-500ms
+		.jumbotron.row
+			.col-md-12.col-lg-12.col-sm-12.col-xs-12
+				h1.text-center BienVenue 
+					span.text-info.lead.animated.flash.forever.delayed-1s
+						| {#{pseudo}}
+			p.col-md-12.col-lg-12.col-sm-12.col-xs-12
+				| La secretaire a le droit de:
+			ul.list-unstyled.col-md-12.col-lg-12.col-sm-12.col-xs-12
+				li
+					a.btn.btn-flat.btn-primary(href="/formateur/ajout_quest/")
+						| * Créer des Questionnaires.
+				li
+					a.btn.btn-flat.btn-primary(href="/formateur/list_quest/")
+						| * Consulter les Questionnaires.
+
+
+

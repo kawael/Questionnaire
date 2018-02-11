@@ -1,0 +1,25 @@
+.navbar.navbar-default.animated.fadeInDown.delayed-500ms
+	.navbar-header
+		button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
+			span.icon-bar
+			span.icon-bar
+			span.icon-bar
+		a.navbar-brand.dropdown-toggle(href='javascript:void(0)',data-toggle='dropdown')
+			i.mdi-navigation-chevron-left
+			| #{title}
+		ul.dropdown-menu.z-index
+			li
+				a(href='/secretaire') Acceuil 
+			li
+				a(href='/login') Deconnecte
+	.navbar-collapse.collapse.navbar-responsive-collapse
+		ul.nav.navbar-nav.navbar-right
+			li(data-toggle="tooltip" ,data-placement="bottom" ,title="" ,data-original-title="Ajouter un Condidat")
+				a(href='/secretaire/ajout_condidat/') Ajouter
+			li(data-toggle="tooltip" ,data-placement="bottom" ,title="" ,data-original-title="Liste des Condidats")
+				a(href='/secretaire/list_condidat/') Liste
+			li(data-toggle="tooltip" ,data-placement="bottom" ,title="" ,data-original-title="Affectation des Questionnaires")
+				a(href='/secretaire/affect_condidat/') Affecter
+			li(data-toggle="tooltip" ,data-placement="bottom" ,title="" ,data-original-title="Liste des Affectations")
+				a(href='/secretaire/list_affectation/') Affectations
+			

@@ -1,0 +1,24 @@
+.navbar.navbar-default.animated.fadeInDown.delayed-500ms
+	.navbar-header
+		button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
+			span.icon-bar
+			span.icon-bar
+			span.icon-bar
+		a.navbar-brand.dropdown-toggle(href='javascript:void(0)',data-toggle='dropdown')
+			i.mdi-navigation-chevron-left
+			| #{title}
+		ul.dropdown-menu
+			li
+				a(href='/formateur') Acceuil 
+			li
+				a(href='/login') Deconnecte
+	.navbar-collapse.collapse.navbar-responsive-collapse
+		ul.nav.navbar-nav.navbar-right
+			li(data-toggle="tooltip" ,data-placement="bottom" ,title="" ,data-original-title="Ajouter un Questionnaire")
+				a(href='/formateur/ajout_quest/')
+					i.mdi-content-add
+					|  Ajouter
+			li(data-toggle="tooltip" ,data-placement="bottom" ,title="" ,data-original-title="Liste des Questionnaires")
+				a(href='/formateur/list_quest/')
+					i.mdi-action-view-list
+					|  Liste

@@ -1,0 +1,31 @@
+.panel.panel-info.shadow-z-3
+	.panel-heading.text-center
+		h2.lead.panel-title
+			i.mdi-action-view-list
+			|  Liste des Questionnaires
+	.panel-body
+		.form-group.col-md-4.col-lg-4.col-sm-4
+			input#searchQuest.form-control(type="text", placeholder="chercher",data-hint="Rechercher une cellule")
+		.form-group.col-md-4.col-lg-4.col-sm-4
+			select#colSearchQuest.form-control(data-hint="Chercher par Colonne.")
+				option(value='') 
+				option(value='0') ID
+				option(value='1') Intitulé
+				option(value='2') Date
+				option(value='3') Durée
+				option(value='4') Niveau
+		.form-group.col-md-2.col-lg-2.col-sm-4
+			.input-group
+				span.input-group-btn
+					button#searchRowQuest.btn.btn-primary.mdi-action-search(type='submit')
+		.form-group.col-md-2.col-lg-2.col-sm-6.text-right
+			button#ValiderModif.btn.btn-flat.btn-success.btn-xs.no-margin-all.animated.fadeIn(title="Enregister les modifications")
+				i.mdi-navigation-check
+				|  Enregister
+		.col-xs-12.col-sm-12.col-md-12.scoller
+				#hotQuest.handsontable
+	.panel-footer
+		.row.text-info
+			.col-lg-6.col-md-6.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="afficher menu")
+				i.mdi-content-create
+				span  Clique Droite.

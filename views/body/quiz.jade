@@ -1,0 +1,39 @@
+extends ../header/layoutQuiz
+block aside
+	.row.animated.fadeInLeft
+		.hidden-xs.hidden-sm.col-md-12.col-lg-12.fullHeight.brown
+		//- img.col-md-12.fullHeight(src="img/Nodes.png")
+block head
+	.jumbotron.text-center.blue.delayed-500ms.animated.fadeInDown
+		.row
+			.col-xs-12.col-sm-12.col-md-12
+				h2.blockNeue Questionnaire
+			.col-xs-12.col-sm-6.col-md-6
+				h3.blockNeue Bonjour#{pseudo}
+			.col-xs-4.col-xs-offset-4.col-sm-4.col-sm-offset-2.col-md-4.col-md-offset-2
+				h3.blockNeue Heure
+block main
+	.jumbotron.delayed-1s.animated.fadeInUp
+		form.form-horizontal
+			fieldset
+				legend.blockNeue Question1:
+				.form-group
+					label.col-lg-2.control-label.blockNeue Radios
+					.col-lg-10
+						.radio.radio-primary
+							label.blockNeue
+								input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+								| Optiononeisthis
+						.radio.radio-primary
+							label.blockNeue
+								input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+								| Optiontwocanbesomethingelse
+				//- .form-group
+				//- 	label.col-lg-2.control-label(for='inputPassword') Password
+				//- 	.col-lg-10
+				//- 		input#inputPassword.form-control(type='password', placeholder='Password')
+				//- 		.checkbox
+				//- 			label
+				//- 				input(type='checkbox')
+				//- 				|	Checkbox
+				

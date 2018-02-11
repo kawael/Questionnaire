@@ -1,0 +1,63 @@
+extends ../../header/layoutAdmin
+
+block main
+	include menu
+	.container.animated.fadeInUp
+		.row
+			.jumbotron.col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
+				form.form-horizontal#AjoutCDD(method="post",action="/secretaire/ajout_condidat")
+					fieldset
+						legend Inscrire un Condidat
+						.form-group
+							label.col-md-4.control-label(for='inputEmail') Nom :
+							.col-md-8
+								input#inputEmail.form-control.floating-label.input-lg(type='text', placeholder='Nom du Condidat', pattern="[a-zA-Z\ \-]{1,45}", name="nom_cdd" , data-hint="Inserer au max 45 caractères (A->Z|a->z| |-)", required)
+						.form-group
+							label.col-md-4.control-label(for='inputEmail') Prénom :
+							.col-md-8
+								input#inputEmail.form-control.floating-label.input-lg(type='text', placeholder='Prénom du Condidat', pattern="[a-zA-Z\ \-]{1,45}", name="prenom_cdd" , data-hint="Inserer au max 45 caractères (A->Z|a->z| |-)", required)
+						.form-group
+							label.col-md-4.control-label(for='inputEmail') Portable :
+							.col-md-8
+								input#inputEmail.form-control.floating-label.input-lg(type='text', placeholder='Protable du Condidat', pattern="[0-9\ \-]{9,45}", name="tel_cdd" , data-hint="caractères autorisés (0->9|-| )", required)
+						.form-group
+							label.col-md-4.control-label(for='inputEmail') Email :
+							.col-md-8
+								input#inputEmail.form-control.floating-label.input-lg(type='text', placeholder='Email du Condidat', pattern="([a-zA-Z0-9\.\_\-]{1,15})(\@)([a-zA-Z]{1,10})(\.)([a-zA-Z]{1,10})", name="email_cdd", data-hint="Inserer au max 45 caractères (A->Z|a->z|0->9|-|_|.|@)", required)
+						.form-group
+							label.col-md-4.control-label(for='inputPassword') Password :
+							.col-md-8
+								input#inputPassword.form-control.input-lg(type='text',  pattern="[a-zA-Z0-9\_\ \-\.]{9,45}" , name="mdp_cdd",data-hint="Inserer au max 45 caractères (A->Z|a->z|0->9|-|_|.)",required, disabled)
+								.checkbox
+									label
+										input#generMdp(type='checkbox', checked)
+										| générer un mot de passe.
+						.form-group
+							.col-md-5.col-md-offset-1.col-sm-6.col-xs-12
+								button.btn.btn-primary(type='submit') Insérer
+							.col-md-5.col-md-offset-1.col-sm-6.col-xs-12
+								button.btn.btn-default(type='reset') Cancel
+						.form-group
+							.col-md-10.col-md-offset-1#loader
+							.col-md-12.marged
+								#message
+block suppFoot
+	script(src="/js/lib/randexp.min.js")
+	script(src="/js/lib/underscore.min.js")
+	script.
+		var mdp = $('input[name="mdp_cdd"]');
+		var regex = new RandExp(/[a-zA-Z0-9]{6,30}/).gen();
+		mdp.val(regex);
+		document.querySelector('#generMdp').addEventListener('change',function(e){
+			if(this.checked){
+				mdp.attr('disabled',this.checked);
+				regex = new RandExp(/[a-zA-Z0-9]{6,30}/).gen();
+				mdp.val(regex);
+			}else{
+				mdp.attr('disabled',this.checked);
+				mdp.val('');
+			}
+			
+		});
+	script(src="/js/controler/ajout_condidat.js")
+		

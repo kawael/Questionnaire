@@ -1,0 +1,36 @@
+extends ../../header/layout
+
+block content
+	.row.no-margin
+		.col-md-4
+		.col-md-4
+			.panel.panel-default.marged-10.animated.fadeInUp.delayed-500ms
+				.panel-body.scroll-y
+					.list-group
+						- var data = quests
+						each val in data
+							if val.resultat
+								.list-group-item
+									.row-action-primary
+										i.mdi-navigation-check
+									.row-content
+										h4.list-group-item-heading Questionnaire n°= !{val.id_quest_pass}
+										p.list-group-item-text à la date : !{val.date_pass}
+							else
+								.list-group-item
+									a.no-und.row-action-primary.float-right.animated.fadeInLeft.delayed-1s(href= '/condidat/#{val.id_quest_pass}')
+										i.mdi-navigation-arrow-forward.shadow-z-2.blue-invert.clickable
+									.row-content.animated.fadeInLeft.delayed-1s
+										h4.list-group-item-heading Questionnaire n°= !{val.id_quest_pass}
+										p.list-group-item-text à la date : !{val.date_pass}
+							.list-group-separator.float-left.animated.fadeInLeft.delayed-1s
+						
+						
+		.col-md-4
+
+block foot
+	include ../../footer/footer
+	script.
+		$(function() {
+			$.material.init();
+		});

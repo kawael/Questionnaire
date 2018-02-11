@@ -1,0 +1,75 @@
+extends ../../header/layoutAdmin
+
+block main
+	include menu
+	.container.animated.fadeInUp
+		.row
+			.jumbotron.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-10.col-xs-offset-1
+				form.form-horizontal#AjoutQuest(method="post",action="/formateur/ajout_questionnaire")
+					fieldset
+						legend.text-center Ajouter un Qestionnaire
+						.form-group
+							.col-md-10.col-md-offset-1#loader
+							.col-md-12.marged
+								#message
+						.form-group
+							label.col-md-2.control-label Intitulé :
+							.col-md-8
+								input.form-control.floating-label.input-lg(type='text',placeholder='nom du Questionnaire', pattern="[a-zA-Z0-9\.\ \-\_]{1,45}", name="nom_quest" , data-hint="Inserer au max 45 caractères (A->Z|a->z|0->9| |-)", required)
+						.form-group
+							label.col-md-2.control-label Durée(minutes) :
+							.col-md-2
+								input.form-control.input-lg(type='text', name="duree_quest", pattern="([0-9]{1,3})(\:)?([0-9]{0,2})", data-hint="ex: 15:30 ", required)
+							label.col-md-2.control-label Niveau :
+							.col-md-4
+								input.form-control.floating-label.input-lg(type='text', placeholder='Niveau du Questionnaire', pattern="[A-Za-z0-9\.\ \-\+]{1,45}", name="niveau_quest" , data-hint="caractères autorisés (a->z|A->Z|0->9|-| )", required)
+						.form-group
+							label.col-md-2.control-label Questions :
+							.col-md-10
+								ul#listeQuest.nav.nav-tabs.btn-success(role="tablist")
+									//- li.active
+									//- 	a(href='#q1', data-toggle='tab') Question n°1
+									//- 		i.btn.btn-flat.btn-danger.mdi-content-clear.clearLink.no-pad-marg
+									li#new
+										a.btn.btn-raised.btn-info.mdi-content-add(href='#', data-toggle='tab')
+								#contenuQuest.tab-content.well
+									//- #q1.tab-pane.fade.active.in
+									//- 	.form-group
+									//- 		label.col-xs-4.col-sm-3.col-md-3.col-lg-2.control-label Description :
+									//- 		.col-xs-8.col-sm-7.col-md-7.col-lg-5
+									//- 			textarea.form-control(placeholder='Description de Question', name="description_q", required)
+									//- 		label.col-xs-4.col-sm-3.col-md-3.col-lg-2.control-label Type :
+									//- 		.col-xs-8.col-sm-7.col-md-7.col-lg-3
+									//- 			select.form-control(required)
+									//- 				option(value="radio")
+									//- 					| Radio
+									//- 				option(value="checkbox")
+									//- 					| Checkbox
+									//- 	.form-group
+									//- 		label.col-xs-4.col-sm-3.col-md-3.col-lg-2.control-label Réponses :
+									//- 		.col-xs-8.col-sm-9.col-md-9.col-lg-10.row
+									//- 			.col-md-12.col-lg-12.text-right
+									//- 				a.btn.btn-info.btn-fab.btn-flat.mdi-content-add
+									//- 			.col-md-12.col-lg-12.row
+									//- 				.col-md-5.col-lg-5
+									//- 					input.form-control(type='text', name="description_rep", pattern="[a-zA-Z0-9\.\ \-]{1,45}",placeholder="Reponse.", required)
+									//- 				.col-md-5.col-lg-5
+									//- 					i.btn.btn-danger.btn-xs.mdi-content-clear
+									//- 			.col-md-12.col-lg-12.row
+									//- 				.col-md-5.col-lg-5
+									//- 					input.form-control(type='text', name="description_rep", pattern="[a-zA-Z0-9\.\ \-]{1,45}",placeholder="Reponse.")
+									//- 				.col-md-5.col-lg-5
+									//- 					i.btn.btn-danger.btn-xs.mdi-content-clear
+									//- #q2.tab-pane.fade
+										
+						.form-group
+							.col-md-5.col-md-offset-1.col-sm-6.col-xs-12
+								button.btn.btn-primary(type='submit') Ajouter
+							.col-md-5.col-md-offset-1.col-sm-6.col-xs-12
+								button.btn.btn-default(type='reset') Reset
+						
+block suppFoot
+	script(src="/js/lib/underscore.min.js")
+	script(src="/js/controler/ajout_question.js")
+	script(src="/js/controler/ajout_questionnaire.js")
+	

@@ -1,0 +1,28 @@
+extends ../../header/layoutAdmin
+
+block main
+	include menu
+	.container.animated.fadeInUp.delayed-500ms
+		.jumbotron.row
+			.col-md-12.col-lg-12.col-sm-12.col-xs-12
+				h1.text-center BienVenue 
+					span.text-info.lead.animated.flash.forever.delayed-1s
+						| {#{pseudo}}
+			p.col-md-12.col-lg-12.col-sm-12.col-xs-12
+				| La secretaire a le droit de:
+			ul.list-unstyled.col-md-12.col-lg-12.col-sm-12.col-xs-12
+				li
+					a.btn.btn-flat.btn-primary(href="/secretaire/ajout_condidat/")
+						| * Créer les Condidats.
+				li
+					a.btn.btn-flat.btn-primary(href="/secretaire/list_condidat/")
+						| * Consulter les Condidats.
+				li
+					a.btn.btn-flat.btn-primary(href="/secretaire/affect_condidat/")
+						| * Affecter les Questionnaires aux Condidats.
+				li
+					a.btn.btn-flat.btn-primary(href="/secretaire/list_affectation/")
+						| * Consulter les Affectations des Condidats.
+
+
+

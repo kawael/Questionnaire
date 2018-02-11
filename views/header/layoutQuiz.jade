@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	.row.no-margin
+		.col-md-2
+			block aside
+		.col-md-10
+			.row
+				.col-md-12
+					block head
+				.col-md-12
+					block main
+
+block foot
+	include ../footer/footer
+	script.
+		$(function() {
+			$.material.init();
+		});
+	block quizFoot

@@ -1,0 +1,33 @@
+extends ../../header/layoutQuiz
+block style
+	link(rel="stylesheet", href="/css/lib/flipclock.css")
+block aside
+	.row.animated.fadeInLeft.aside
+		.hidden-xs.hidden-sm.col-md-12.col-lg-12.fullHeight.brown
+		//- img.col-md-12.fullHeight(src="img/Nodes.png")
+block head
+	.jumbotron.heading.text-center.blue.delayed-500ms.animated.fadeInDown
+		.row
+			.col-xs-12.col-sm-12.col-md-12
+				h2#champQues
+			.col-xs-12.col-sm-12.col-md-12
+				h3#champCdd
+			.col-xs-12.col-sm-6.col-md-4.col-md-offset-1
+				button#conti_end.btn.btn-white.btn-block.marged-5.hidden Continue		
+			div.col-xs-12.col-sm-6.col-md-6
+				h4.text-center Temps Restant
+				div.well#champTemps
+block main
+	#container.delayed-1s.animated.fadeInUp
+		form.form-horizontal
+			fieldset#Main
+				.row
+					.well.sized.text-center
+						button#luncher.btn.btn-info.btn-lg.btn-fab.btn-raised.mdi-action-launch(title="Commencer le Quiz")
+	
+block quizFoot
+	script(src="/js/lib/underscore.min.js")
+	script(src="/js/lib/flipclock.min.js")
+	script.
+		var quests= !{quests};
+	script(src="/js/controler/passer_questionnaire.js")

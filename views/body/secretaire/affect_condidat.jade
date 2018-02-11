@@ -1,0 +1,73 @@
+extends ../../header/layoutAdmin
+block style
+	link(rel="stylesheet", media="screen", href="/css/lib/handsontable.full.min.css")
+block main
+	include menu
+	.container.animated.fadeInUp.marged-cote
+		.row
+			if !one_cdd
+				.col-lg-6.col-md-6.col-sm-12.col-xs-12
+					include panel_list_cdd
+			a#expendQuest.btn.btn-fab.mdi-navigation-arrow-forward.no-shadow.absolute-center(href='')
+			#modal_add_affect.modal.fade(tabindex='-1')
+				.modal-dialog
+					.modal-content
+						.modal-header
+							button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+							h4.modal-title Affectation des Condidats au Questionnaires
+						.modal-body
+							table.table.table-striped.table-hover
+								thead
+									th Condidat
+									th Questionnaire
+									th Date de passage
+									th.text-right
+										button.btn.btn-success.no-marg.add-row
+											i.mdi-content-add
+								tbody#list_affect
+									
+						.modal-footer
+							#message
+							button#btn_affect.btn.btn-flat.btn-success
+								i.mdi-navigation-check
+								|  Affecter
+							button.btn.btn-default(data-dismiss='modal') Fermer
+			if one_cdd
+				.col-lg-12.col-md-12.col-sm-12.col-xs-12
+					include panel_list_quest
+			else
+				.col-lg-6.col-md-6.col-sm-12.col-xs-12
+					include panel_list_quest
+				
+block suppFoot
+	script(src="/js/lib/underscore.min.js")
+	script(src="/js/lib/handsontable.full.min.js")
+	script(src="/js/lib/snackbar.min.js")
+	if !one_cdd
+		script.
+			var data = !{data};
+	script.
+		var dataQuest = !{dataQuest} || undefined;
+
+		var selectedCdd = [];
+		var selectedQuest = [];
+		var diference = [],ValiderModif;
+		var delData = [];
+		function ObjectToArray(dataOld) {
+			var dataNew = [];
+			_(dataOld).each(function(element, index) {
+				i = 0;
+				dataNew[index] = [];
+				_(element).each(function(valeur, key) {
+					dataNew[index][i] = valeur;
+					i++;
+				});
+			});
+			return dataNew;
+		}
+	if one_cdd
+		script.
+			selectedCdd.push([!{id_condidat},'!{nom_condidat}','!{prenom_condidat}']);
+	if !one_cdd
+		script(src="/js/controler/list_condidat.js")
+	script(src="/js/controler/list_questionnaire.js")

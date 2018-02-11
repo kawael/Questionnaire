@@ -1,0 +1,35 @@
+extends ../../header/layoutAdmin
+block style
+	link(rel="stylesheet", media="screen", href="/css/lib/handsontable.full.min.css")
+
+block main
+	include menu
+	.container.animated.fadeInUp
+		.row
+			.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+					include panel_list_cdd
+						
+	
+block suppFoot
+	script(src="/js/lib/underscore.min.js")
+	script(src="/js/lib/handsontable.full.min.js")
+	script(src="/js/lib/snackbar.min.js")
+	script.
+		var data = !{data};
+		var dataQuest= undefined;
+		var diference=[];
+		var ValiderModif;
+		var delData=[];
+		function ObjectToArray(dataOld) {
+			var dataNew = [];
+			_(dataOld).each(function(element, index) {
+				i = 0;
+				dataNew[index] = [];
+				_(element).each(function(valeur, key) {
+					dataNew[index][i] = valeur;
+					i++;
+				});
+			});
+			return dataNew;
+		}
+	script(src="/js/controler/list_condidat.js")

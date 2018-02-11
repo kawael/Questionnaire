@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	block main
+block foot
+	include ../footer/footer
+	script.
+		$(function() {
+			$.material.init();
+			$('[data-toggle="tooltip"]').tooltip();
+			$('[data-toggle="tooltip"]').on('shown.bs.tooltip', function () {
+				$('.tooltip').addClass('animated bounce');
+			})
+			setTimeout(function() {
+		        $(".container").removeClass('fadeInUp');
+		        $(".container").removeClass('animated');
+		    }, 1500);
+		});
+	block suppFoot

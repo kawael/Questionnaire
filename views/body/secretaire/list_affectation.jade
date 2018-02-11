@@ -1,0 +1,47 @@
+extends ../../header/layoutAdmin
+block style
+	link(rel="stylesheet", media="screen", href="/css/lib/handsontable.full.min.css")
+
+block main
+	include menu
+	.container.animated.fadeInUp
+		.row
+			.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+				.panel.panel-info.shadow-z-3
+					.panel-heading.text-center
+						h2.lead.panel-title
+							i.mdi-action-view-list
+							|  Liste des Condidats
+					.panel-body
+						.form-group.col-md-3.col-lg-3.col-sm-4
+							input#search.form-control(type="text", placeholder="chercher",data-hint="Rechercher une cellule")
+						.form-group.col-md-3.col-lg-3.col-sm-4
+							select#colSearch.form-control(data-hint="Chercher par Colonne.")
+								option(value='') 
+								option(value='0') Ccondidat
+								option(value='1') Questionnaire
+								option(value='2') Resultat
+								option(value='3') Date
+								option(value='4') Activer
+						.form-group.col-md-2.col-lg-2.col-sm-4
+							.input-group
+								span.input-group-btn
+									button#searchRow.btn.btn-primary.mdi-action-search(type='submit')
+						.form-group.col-md-2.col-lg-2.col-sm-6.text-right
+							button#ValiderModif.btn.btn-flat.btn-success.btn-xs.no-margin-all.animated.fadeIn(title="Enregister les modifications")
+								i.mdi-navigation-check
+								|  Enregister
+						.col-xs-12.col-sm-12.col-md-12.scoller
+								#hot.handsontable
+						
+	
+block suppFoot
+	script(src="/js/lib/underscore.min.js")
+	script(src="/js/lib/handsontable.full.min.js")
+	script(src="/js/lib/snackbar.min.js")
+	script.
+		var diference=[];
+		var ValiderModif;
+		var delData=[];
+		var data = !{data};
+	script(src="/js/controler/list_affect.js")

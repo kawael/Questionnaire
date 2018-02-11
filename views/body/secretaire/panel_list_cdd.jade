@@ -1,0 +1,61 @@
+.panel.panel-info.shadow-z-3
+	.panel-heading.text-center
+		h2.lead.panel-title
+			i.mdi-action-view-list
+			|  Liste des Condidats
+	.panel-body
+		.form-group.col-md-3.col-lg-3.col-sm-4
+			input#search.form-control(type="text", placeholder="chercher",data-hint="Rechercher une cellule")
+		.form-group.col-md-3.col-lg-3.col-sm-4
+			select#colSearch.form-control(data-hint="Chercher par Colonne.")
+				option(value='') 
+				option(value='0') ID
+				option(value='1') MDP
+				option(value='2') NOM
+				option(value='3') PRENOM
+				option(value='4') TEL
+				option(value='5') EMAIL
+		.form-group.col-md-2.col-lg-2.col-sm-4
+			.input-group
+				span.input-group-btn
+					button#searchRow.btn.btn-primary.mdi-action-search(type='submit')
+		.form-group.col-md-2.col-lg-2.col-sm-6.text-right
+			button#ValiderModif.btn.btn-flat.btn-success.btn-xs.no-margin-all.animated.fadeIn(title="Enregister les modifications")
+				i.mdi-navigation-check
+				|  Enregister
+		.col-xs-12.col-sm-12.col-md-12.scoller
+				#hot.handsontable
+	.panel-footer
+		.row.text-info
+			if dataQuest
+				.col-lg-6.col-md-6.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="afficher menu")
+					i.mdi-content-create
+					span  Clique Droite.
+			else
+				.col-lg-2.col-md-2.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="modifier")
+					i.mdi-content-create
+					span  Espace.
+				.col-lg-2.col-md-2.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="Supprimer")
+					i.mdi-content-clear
+					span  Suppr.
+				.col-lg-2.col-md-2.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="Copier")
+					i.mdi-content-content-copy
+					span  Ctrl+C.
+				.col-lg-2.col-md-2.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="Coller")
+					i.mdi-content-content-paste
+					span  Ctrl+V.
+				.col-lg-2.col-md-2.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="Couper")
+					i.mdi-content-content-cut
+					span  Ctrl+X.
+				.col-lg-2.col-md-2.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="En Arrière")
+					i.mdi-content-undo
+					span  Ctrl+Z.
+				.col-lg-2.col-md-2.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="En Avant")
+					i.mdi-content-redo
+					span  Ctrl+Y.
+				.col-lg-4.col-md-4.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="Trier par Colonne")
+					i.mdi-content-sort
+					span  Clique sur une Colonne.
+				.col-lg-4.col-md-4.col-sm-6.col-xs-6(data-toggle="tooltip" ,data-placement="top" ,title="", data-original-title="Supprimer une ligne")
+					i.mdi-content-clear
+					span  Clique Droit/Remove Row.
