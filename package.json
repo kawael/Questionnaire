@@ -17,5 +17,19 @@
     "mysql": "^2.5.4",
     "serve-favicon": "~2.2.0",
     "underscore": "^1.7.0"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawael/Questionnaire.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kawael/Questionnaire/issues"
+  },
+  "homepage": "https://github.com/kawael/Questionnaire#readme",
+  "description": ""
 }
